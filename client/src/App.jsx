@@ -28,8 +28,9 @@ if (query == "" ) return
 
   return (
     <div>
+          <div className="container">
         <form onSubmit={grabPoke}>
-        <div className="containerInput">
+     
           <input
             type="text"
             id="text"
@@ -38,15 +39,14 @@ if (query == "" ) return
             placeholder="Enter Pokémon name or ID"
             />
           <button id="submit" type="submit">
-     
+     Selecionar
           </button>
-            </div>
+      
         </form>
 
         {pokemonData && (
           <div>
-                  <div className="container">
-
+            
       <div className="imgBack">
             <div id="number">#{pokemonData.id}</div>
             <img
@@ -60,8 +60,8 @@ if (query == "" ) return
               alt={pokemonData.species.name}
               />
               </div>
-              </div>
-            <div id="name">{pokemonData.species.name.toUpperCase()}</div>
+              <div class="bottom-container">
+              <div id="name">{pokemonData.species.name.toUpperCase()}</div>
             <div id="type">
               TYPE:{" "}
               {pokemonData.types
@@ -76,15 +76,38 @@ if (query == "" ) return
                 .join(", ")
                 .toUpperCase()}
             </div>
-            <div id="hp">BASE HEALTH: {pokemonData.stats[5].base_stat}</div>
-            <div id="attack">ATTACK: {pokemonData.stats[4].base_stat}</div>
-            <div id="defense">DEFENSE: {pokemonData.stats[3].base_stat}</div>
-            <div id="speed">SPEED: {pokemonData.stats[0].base_stat}</div>
-              
+<table>
+  <tr>
+
+  </tr>
+  <tr>
+    <td>HP:</td>
+    <div id="hp"> {pokemonData.stats[5].base_stat}</div>
+  </tr>
+  <tr>
+    <td>Attack:</td>
+    <div id="attack"> {pokemonData.stats[4].base_stat}</div>
+  </tr>
+  <tr>
+    <td>Defense:</td>
+    <div id="defense"> {pokemonData.stats[3].base_stat}</div>
+  </tr>
+  <tr>
+    <td>Speed</td>
+    <div id="speed"> {pokemonData.stats[0].base_stat}</div>
+  </tr>
+</table>
           </div>
+              </div>
+            
 
-        )}
+          
+            
+            
+            
+            )}
 
+            </div>
     </div>
   );
 };
